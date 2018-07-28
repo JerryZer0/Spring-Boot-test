@@ -49,7 +49,7 @@ public class CompanyService {
     public List<Company> getCompaniesInPage(int pageNumber, int pageSize) {
 //        List<Company>
 //        int begin = (pageNumber - 1) * pageSize;
-        Page<Company> getByPage = companyRepository.findAll(new PageRequest(0,2));
+        Page<Company> getByPage = companyRepository.findAll(new PageRequest(0, 2));
 //        for (int i = begin; i < size && ((i - begin) < pageSize); i++) {
 //            getByPage.add(companies.get(i));
 //        }
