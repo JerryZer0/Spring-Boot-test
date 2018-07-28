@@ -1,5 +1,7 @@
-package com.oocl.RestfulAPI.EmployeesAPI;
+package com.oocl.RestfulAPI.services;
 
+import com.oocl.RestfulAPI.EmployeesAPI.EmployeeList;
+import com.oocl.RestfulAPI.entities.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

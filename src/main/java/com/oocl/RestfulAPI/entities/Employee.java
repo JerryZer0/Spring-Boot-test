@@ -1,4 +1,4 @@
-package com.oocl.RestfulAPI.EmployeesAPI;
+package com.oocl.RestfulAPI.entities;
 
 public class Employee {
     private int id;

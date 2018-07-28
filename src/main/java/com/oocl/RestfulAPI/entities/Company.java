@@ -1,6 +1,4 @@
-package com.oocl.RestfulAPI.CompaniesAPI;
-
-import com.oocl.RestfulAPI.EmployeesAPI.Employee;
+package com.oocl.RestfulAPI.entities;
 
 import java.util.List;
 

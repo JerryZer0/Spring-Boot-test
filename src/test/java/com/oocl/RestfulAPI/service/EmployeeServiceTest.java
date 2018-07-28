@@ -1,7 +1,7 @@
-package com.oocl.RestfulAPI;
+package com.oocl.RestfulAPI.service;
 
-import com.oocl.RestfulAPI.EmployeesAPI.Employee;
-import com.oocl.RestfulAPI.EmployeesAPI.EmployeeService;
+import com.oocl.RestfulAPI.entities.Employee;
+import com.oocl.RestfulAPI.services.EmployeeService;
 import org.junit.Test;
 
 import java.util.ArrayList;

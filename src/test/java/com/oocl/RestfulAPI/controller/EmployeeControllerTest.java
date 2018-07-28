@@ -1,25 +1,21 @@
-package com.oocl.RestfulAPI;
+package com.oocl.RestfulAPI.controller;
 
-import com.oocl.RestfulAPI.EmployeesAPI.Employee;
-import com.oocl.RestfulAPI.EmployeesAPI.EmployeeController;
-import com.oocl.RestfulAPI.EmployeesAPI.EmployeeService;
-import org.junit.Before;
+import com.oocl.RestfulAPI.entities.Employee;
+import com.oocl.RestfulAPI.controllers.EmployeeController;
+import com.oocl.RestfulAPI.services.EmployeeService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -60,12 +56,15 @@ public class EmployeeControllerTest {
 
     @Test
     public void should_return_employee_with_id_is_1() throws Exception {
-
         List<Employee> employeeList = new ArrayList<>();
-        given(service.getEmployee(anyInt())).willReturn(new Employee(1, "小明", 20, "male"));
-        //System.out.println(jsonPath().toString());
+        given(service.getEmployee(1)).willReturn(new Employee(1, "小明", 20, "male"));
         mockMvc.perform(get("/employees/1")).andExpect(status().isOk())
                 .andExpect(jsonPath("name").value("小明"))
                 .andExpect(jsonPath("id").value(1));
+    }
+
+    @Test
+    public void should_add_employee_successfully(){
+
     }
 }

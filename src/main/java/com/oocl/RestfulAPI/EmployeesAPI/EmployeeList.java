@@ -1,5 +1,7 @@
 package com.oocl.RestfulAPI.EmployeesAPI;
 
+import com.oocl.RestfulAPI.entities.Employee;
+
 import java.util.ArrayList;
 import java.util.List;
 

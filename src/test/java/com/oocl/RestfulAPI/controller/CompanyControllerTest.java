@@ -1,4 +1,4 @@
-package com.oocl.RestfulAPI;
+package com.oocl.RestfulAPI.controller;
 
 public class CompanyControllerTest {
 }
