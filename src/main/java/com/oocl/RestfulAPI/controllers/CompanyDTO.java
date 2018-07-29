@@ -28,4 +28,10 @@ public class CompanyDTO {
         this.employeeList = company.getEmployeeList().stream().map(employee ->
                 new EmployeeDTO(employee)).collect(Collectors.toList());
     }
+
+    public CompanyDTO(int id, String name, List<EmployeeDTO> employeeList) {
+        this.id = id;
+        this.name = name;
+        this.employeeList = employeeList;
+    }
 }

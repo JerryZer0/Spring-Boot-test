@@ -1,6 +1,7 @@
 package com.oocl.RestfulAPI.services;
 
 import com.oocl.RestfulAPI.EmployeesAPI.EmployeeList;
+import com.oocl.RestfulAPI.controllers.EmployeeDTO;
 import com.oocl.RestfulAPI.entities.Employee;
 import com.oocl.RestfulAPI.entities.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
