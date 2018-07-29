@@ -3,7 +3,9 @@ package com.oocl.RestfulAPI.controllers;
 import com.oocl.RestfulAPI.entities.Employee;
 import com.oocl.RestfulAPI.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -56,15 +58,22 @@ public class EmployeeController {
     }
 
     @PutMapping(path = "employees/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void updateEmployee(@PathVariable int id,@RequestBody Employee employee){
+    public ResponseEntity<Object> updateEmployee(@PathVariable("id") int id, @RequestBody Employee employee){
         employeeService.updateEmployee(id,employee);
         System.out.println(employee.getAge());
         System.out.println(employee.getName());
+
+        if ( employeeService.updateEmployee(id,employee)) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
     @DeleteMapping(path = "employees/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteEmployee(@PathVariable int id){
-        employeeService.deleteEmployee(id);
-        System.out.println(id);
+    public ResponseEntity<Object> deleteEmployee(@PathVariable int id){
+        if (employeeService.deleteEmployee(id)) {
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 }

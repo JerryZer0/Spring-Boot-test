@@ -63,17 +63,20 @@ public class EmployeeService {
         return employeeLiat;
     }
 
-    public void add(Employee employee) {
+    public boolean add(Employee employee) {
         repository.save(employee);
+        return true;
     }
 
-    public void updateEmployee(int id, Employee employee) {
+    public boolean updateEmployee(int id, Employee employee) {
         employee.setId(id);
         repository.save(employee);
+        return true;
     }
 
-    public void deleteEmployee(int id) {
+    public boolean deleteEmployee(int id) {
         Employee employee = repository.findById(id).get();
         repository.delete(employee);
+        return true;
     }
 }
