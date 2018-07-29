@@ -59,9 +59,7 @@ public class EmployeeController {
 
     @PutMapping(path = "employees/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> updateEmployee(@PathVariable("id") int id, @RequestBody Employee employee){
-        employeeService.updateEmployee(id,employee);
-        System.out.println(employee.getAge());
-        System.out.println(employee.getName());
+        //employeeService.updateEmployee(id,employee);
 
         if ( employeeService.updateEmployee(id,employee)) {
             return ResponseEntity.noContent().build();

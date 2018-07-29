@@ -4,7 +4,9 @@ import com.oocl.RestfulAPI.entities.Employee;
 import com.oocl.RestfulAPI.services.CompanyService;
 import com.oocl.RestfulAPI.entities.Company;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,14 +48,19 @@ public class CompanyController {
     }
 
     @PutMapping(path = "companies/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void updateCompany(@PathVariable int id, @RequestBody Company company) {
-        companyService.updateCompany(id, company);
-        System.out.println(company.getName());
+    public ResponseEntity<Object> updateCompany(@PathVariable int id, @RequestBody Company company) {
+
+        if (companyService.updateCompany(id, company)) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
     @DeleteMapping(path = "companies/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteCompany(@PathVariable int id) {
-        companyService.deleteCompany(id);
-        System.out.println(id);
+    public ResponseEntity<Object> deleteCompany(@PathVariable int id) {
+        if (companyService.deleteCompany(id)) {
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 }
