@@ -23,6 +23,12 @@ public class Company {
         this.name = name;
     }
 
+    public Company(int id, String name, List<Employee> employeeList) {
+        this.id = id;
+        this.name = name;
+        this.employeeList = employeeList;
+    }
+
     public int getId() {
         return id;
     }

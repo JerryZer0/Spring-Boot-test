@@ -73,6 +73,7 @@ public class EmployeeService {
     }
 
     public void updateEmployee(int id, Employee employee) {
+        employee.setId(id);
         repository.save(employee);
     }
 

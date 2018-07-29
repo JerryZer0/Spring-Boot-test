@@ -39,23 +39,27 @@ public class CompanyService {
     }
 
     public List<Company> getCompaniesInPage(int pageNumber, int pageSize) {
-        Page<Company> getByPage = companyRepository.findAll(new PageRequest(0, 2));
-        return (List<Company>) getByPage;
+        List<Company> getByPage = (List<Company>) companyRepository.findAll(new PageRequest(0, 2));
+        return getByPage;
     }
 
-    public void add(Company company) {
+    public boolean add(Company company) {
         company.getEmployeeList().stream().forEach(employee ->
                 employee.setCompany(company));
         companyRepository.save(company);
+        return true;
     }
 
-    public void updateCompany(int id, Company company1) {
-        Company company = companyRepository.findById(id).get();
-        companyRepository.save(company);
+    public boolean updateCompany(int id, Company company1) {
+        //Company company = companyRepository.findById(id).get();
+        company1.setId(id);
+        companyRepository.save(company1);
+        return true;
     }
 
-    public void deleteCompany(int id) {
+    public boolean deleteCompany(int id) {
         Company company = companyRepository.findById(id).get();
         companyRepository.delete(company);
+        return true;
     }
 }

@@ -121,7 +121,6 @@ public class EmployeeServiceTest {
     public void should_delete_the_employee_info_with_delete_successfully() {
         //given
         EmployeeService employeeService = new EmployeeService(repository);
-        List<Employee> employeeList = new ArrayList<>();
         Employee employee1 = new Employee(1, "小明", 20, "male");
         //employeeList.add(employee1);
 
