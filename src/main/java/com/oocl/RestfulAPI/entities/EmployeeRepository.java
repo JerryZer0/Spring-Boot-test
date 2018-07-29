@@ -3,7 +3,9 @@ package com.oocl.RestfulAPI.entities;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
-    public Employee findByGender(String gender);
+    public List<Employee> findByGender(String gender);
 }

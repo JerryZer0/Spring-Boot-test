@@ -7,6 +7,7 @@ import com.oocl.RestfulAPI.entities.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -60,11 +61,11 @@ public class EmployeeService {
     }
 
     public List<Employee> getEmployeeListInPage(int pageNumber, int pageSize) {
-        Page<Employee> getByPage = repository.findAll(new PageRequest(0, 2));
+        List<Employee> employeeLiat = (List<Employee>) repository.findAll(new PageRequest(0, 2));
 //        for (int i = begin; i < size && ((i - begin) < pageSize); i++) {
 //            getByPage.add(companies.get(i));
 //        }
-        return (List<Employee>) getByPage;
+        return employeeLiat;
     }
 
     public void add(Employee employee) {
