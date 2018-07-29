@@ -1,9 +1,6 @@
 package com.oocl.RestfulAPI.controllers;
 import com.oocl.RestfulAPI.entities.Employee;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class EmployeeDTO {
 
     private final int id;

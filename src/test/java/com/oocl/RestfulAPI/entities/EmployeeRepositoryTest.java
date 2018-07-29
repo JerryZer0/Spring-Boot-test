@@ -7,14 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -47,7 +45,8 @@ public class EmployeeRepositoryTest {
         manager.persist(new Employee("张三",28,"male",new Company("kuaile")));
         manager.persist(new Employee("Joker",18,"male",new Company("moments")));
         //when
-        List<Employee> employees = repository.findAll(PageRequest.of(0,5)).getContent();
+//        List<Employee> employees = repository.findAll(PageRequest.of(0,5)).getContent();
+        List<Employee> employees = repository.findAll();
 
         //then
         System.err.println("654654dfgdf "+employees.size());

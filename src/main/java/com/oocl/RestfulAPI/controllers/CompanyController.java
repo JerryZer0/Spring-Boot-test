@@ -1,8 +1,8 @@
 package com.oocl.RestfulAPI.controllers;
 
+import com.oocl.RestfulAPI.entities.Employee;
 import com.oocl.RestfulAPI.services.CompanyService;
 import com.oocl.RestfulAPI.entities.Company;
-import com.oocl.RestfulAPI.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

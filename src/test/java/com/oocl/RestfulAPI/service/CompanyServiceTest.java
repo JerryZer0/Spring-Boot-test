@@ -2,14 +2,12 @@ package com.oocl.RestfulAPI.service;
 
 import com.oocl.RestfulAPI.entities.Company;
 import com.oocl.RestfulAPI.entities.CompanyRepository;
-import com.oocl.RestfulAPI.services.CompanyService;
 import com.oocl.RestfulAPI.entities.Employee;
+import com.oocl.RestfulAPI.services.CompanyService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +15,6 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
