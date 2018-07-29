@@ -31,7 +31,8 @@ public class EmployeeServiceTest {
     public void should_return_the_hole_employee_list(){
         //given
         EmployeeService employeeService = new EmployeeService(repository);
-        List<Employee> employeeList = new ArrayList<>(Arrays.asList(new Employee("小红", 18, "female",new Company("hahha"))));
+        List<Employee> employeeList = new ArrayList<>(
+                Arrays.asList(new Employee("小红", 18, "female",new Company("hahha"))));
 
         //when
         when(repository.findAll()).thenReturn(employeeList);

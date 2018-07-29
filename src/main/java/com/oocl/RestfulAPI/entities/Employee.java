@@ -15,7 +15,7 @@ public class Employee {
     private String gender;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "company_id")
     private Company company;
 
