@@ -19,8 +19,7 @@ public class Company {
     Company() {
     }
 
-    public Company(int id, String name) {
-        this.id = id;
+    public Company( String name) {
         this.name = name;
     }
 

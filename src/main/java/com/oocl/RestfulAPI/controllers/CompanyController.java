@@ -23,9 +23,9 @@ public class CompanyController {
     }
 
     @GetMapping(path = "companies/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Company getCompanyById(@PathVariable int id) {
+    public CompanyDTO getCompanyById(@PathVariable int id) {
         Company company = companyService.getCompany(id);
-        return company;
+        return new CompanyDTO(company);
     }
 
     @GetMapping(path = "companies/{id}/employees", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -37,34 +37,34 @@ public class EmployeeControllerTest {
 //                .andExpect(content().contentType("application/json"));
 //    }
 
-    @Test
-    public void should_return_employee_list() throws Exception {
-
-        Employee employee1 = new Employee(1, "小明", 20, "male");
-        Employee employee2 = new Employee(2, "小红", 18, "female");
-
-        List<Employee> employeeList = new ArrayList<>();
-        employeeList.add(employee1);
-        employeeList.add(employee2);
-        given(service.getEmployeeList()).willReturn(employeeList);
-        mockMvc.perform(get("/employees")).andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].name").value("小明"))
-                .andExpect(jsonPath("$[0].id").value(1))
-                .andExpect(jsonPath("$[1].age").value(18))
-                .andExpect(jsonPath("$[1].gender").value("female"));
-    }
-
-    @Test
-    public void should_return_employee_with_id_is_1() throws Exception {
-        List<Employee> employeeList = new ArrayList<>();
-        given(service.getEmployee(1)).willReturn(new Employee(1, "小明", 20, "male"));
-        mockMvc.perform(get("/employees/1")).andExpect(status().isOk())
-                .andExpect(jsonPath("name").value("小明"))
-                .andExpect(jsonPath("id").value(1));
-    }
-
-    @Test
-    public void should_add_employee_successfully(){
-
-    }
+//    @Test
+//    public void should_return_employee_list() throws Exception {
+//
+//        Employee employee1 = new Employee(1, "小明", 20, "male");
+//        Employee employee2 = new Employee(2, "小红", 18, "female");
+//
+//        List<Employee> employeeList = new ArrayList<>();
+//        employeeList.add(employee1);
+//        employeeList.add(employee2);
+//        given(service.getEmployeeList()).willReturn(employeeList);
+//        mockMvc.perform(get("/employees")).andExpect(status().isOk())
+//                .andExpect(jsonPath("$[0].name").value("小明"))
+//                .andExpect(jsonPath("$[0].id").value(1))
+//                .andExpect(jsonPath("$[1].age").value(18))
+//                .andExpect(jsonPath("$[1].gender").value("female"));
+//    }
+//
+//    @Test
+//    public void should_return_employee_with_id_is_1() throws Exception {
+//        List<Employee> employeeList = new ArrayList<>();
+//        given(service.getEmployee(1)).willReturn(new Employee(1, "小明", 20, "male"));
+//        mockMvc.perform(get("/employees/1")).andExpect(status().isOk())
+//                .andExpect(jsonPath("name").value("小明"))
+//                .andExpect(jsonPath("id").value(1));
+//    }
+//
+//    @Test
+//    public void should_add_employee_successfully(){
+//
+//    }
 }

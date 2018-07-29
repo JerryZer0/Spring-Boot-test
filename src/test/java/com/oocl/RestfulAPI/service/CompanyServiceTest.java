@@ -13,10 +13,7 @@
 //import static org.mockito.Mockito.mock;
 //
 //public class CompanyServiceTest {
-//    List<Employee> employeeList = new ArrayList<>();
-//    List<Company> companies = new ArrayList<>();
-//    Employee employee1 = mock(Employee.class);
-//    Employee employee2 = mock(Employee.class);
+//
 //
 //    @Test
 //    public void should_return_the_hole_employee_list(){
