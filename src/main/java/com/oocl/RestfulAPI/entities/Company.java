@@ -1,19 +1,27 @@
 package com.oocl.RestfulAPI.entities;
 
+
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Company {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company",fetch = FetchType.LAZY)
     private List<Employee> employeeList;
 
     Company() {
     }
 
-    public Company(int id, String name,List<Employee> employeeList) {
+    public Company(int id, String name) {
         this.id = id;
         this.name = name;
-        this.employeeList = employeeList;
     }
 
     public int getId() {

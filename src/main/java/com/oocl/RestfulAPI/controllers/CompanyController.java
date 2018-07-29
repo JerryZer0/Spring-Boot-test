@@ -4,11 +4,13 @@ import com.oocl.RestfulAPI.services.CompanyService;
 import com.oocl.RestfulAPI.entities.Company;
 import com.oocl.RestfulAPI.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping()
 public class CompanyController {
 
     @Autowired
@@ -34,24 +36,23 @@ public class CompanyController {
 
     @GetMapping("companies/page/{pageNumber}/pageSize/{pageSize}")
     public List<Company> getCompaniesByPage(@PathVariable("pageNumber") int pageNumber, @PathVariable("pageSize") int pageSize) {
-        List<Company> Companies = companyService.getCompaniesInPage(pageNumber,pageSize);
+        List<Company> Companies = companyService.getCompaniesInPage(pageNumber, pageSize);
         return Companies;
     }
 
-    @PostMapping("companies")
-    public void addCopany(@RequestBody Company company){
+    @PostMapping(path = "companies", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void addCompany(@RequestBody Company company) {
         companyService.add(company);
-        System.out.println(company.getName());
     }
 
     @PutMapping("companies/{id}")
-    public void updateCompany(@PathVariable int id,@RequestBody Company company){
-        companyService.updateCompany(id,company);
+    public void updateCompany(@PathVariable int id, @RequestBody Company company) {
+        companyService.updateCompany(id, company);
         System.out.println(company.getName());
     }
 
     @DeleteMapping("companies/{id}")
-    public void deleteCompany(@PathVariable int id){
+    public void deleteCompany(@PathVariable int id) {
         companyService.deleteCompany(id);
         System.out.println(id);
     }

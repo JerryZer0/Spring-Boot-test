@@ -57,6 +57,8 @@ public class CompanyService {
     }
 
     public void add(Company company) {
+        company.getEmployeeList().stream().forEach(employee ->
+                employee.setCompany(company));
         companyRepository.save(company);
     }
 

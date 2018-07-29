@@ -1,19 +1,25 @@
 package com.oocl.RestfulAPI.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+
+@Entity
 public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private int age;
     private String gender;
 
-    Employee() {
-    }
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
 
-    public Employee(int id, String name, int age, String gender) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+    Employee() {
     }
 
     public int getId() {
@@ -48,4 +54,11 @@ public class Employee {
         this.gender = gender;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 }

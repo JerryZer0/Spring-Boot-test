@@ -53,9 +53,9 @@ public class EmployeeService {
         return employee;
     }
 
-    public Employee getEmployeeListByGender(String gender) {
-        Employee employee = repository.findByGender(gender);
-        return employee;
+    public List<Employee> getEmployeeListByGender(String gender) {
+        List<Employee> employees = (List<Employee>) repository.findByGender(gender);
+        return employees;
     }
 
     public List<Employee> getEmployeeListInPage(int pageNumber, int pageSize) {
