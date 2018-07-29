@@ -16,25 +16,25 @@ public class CompanyController {
     @Autowired
     private CompanyService companyService;
 
-    @GetMapping("companies")
+    @GetMapping(path = "companies", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Company> getCompanyList() {
         List<Company> Companies = companyService.getCompanyList();
         return Companies;
     }
 
-    @GetMapping("companies/{id}")
+    @GetMapping(path = "companies/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Company getCompanyById(@PathVariable int id) {
         Company company = companyService.getCompany(id);
         return company;
     }
 
-    @GetMapping("companies/{id}/employees")
+    @GetMapping(path = "companies/{id}/employees", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Employee> getEmployeesByCompanyId(@PathVariable int id) {
         List<Employee> employeeList = companyService.getEmployeesByCompanyId(id);
         return employeeList;
     }
 
-    @GetMapping("companies/page/{pageNumber}/pageSize/{pageSize}")
+    @GetMapping(path = "companies/page/{pageNumber}/pageSize/{pageSize}", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Company> getCompaniesByPage(@PathVariable("pageNumber") int pageNumber, @PathVariable("pageSize") int pageSize) {
         List<Company> Companies = companyService.getCompaniesInPage(pageNumber, pageSize);
         return Companies;
@@ -45,13 +45,13 @@ public class CompanyController {
         companyService.add(company);
     }
 
-    @PutMapping("companies/{id}")
+    @PutMapping(path = "companies/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void updateCompany(@PathVariable int id, @RequestBody Company company) {
         companyService.updateCompany(id, company);
         System.out.println(company.getName());
     }
 
-    @DeleteMapping("companies/{id}")
+    @DeleteMapping(path = "companies/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteCompany(@PathVariable int id) {
         companyService.deleteCompany(id);
         System.out.println(id);

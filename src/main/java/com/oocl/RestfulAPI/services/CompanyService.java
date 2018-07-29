@@ -17,18 +17,10 @@ public class CompanyService {
 
     private CompanyRepository companyRepository;
 
-    private EmployeeRepository employeeRepository;
-
     @Autowired
-    public CompanyService(CompanyRepository companyRepository, EmployeeRepository employeeRepository) {
+    public CompanyService(CompanyRepository companyRepository) {
         this.companyRepository = companyRepository;
-        this.employeeRepository = employeeRepository;
     }
-
-//    List<Company> companies = new ArrayList<>();
-//    List<Employee> employeeList = new ArrayList<>();
-//    Employee employee1 = new Employee(1, "小明", 20, "male");
-//    Employee employee2 = new Employee(2, "小红", 18, "female");
 
     public List<Company> getCompanyList() {
         List<Company> companies = companyRepository.findAll();
@@ -47,12 +39,7 @@ public class CompanyService {
     }
 
     public List<Company> getCompaniesInPage(int pageNumber, int pageSize) {
-//        List<Company>
-//        int begin = (pageNumber - 1) * pageSize;
         Page<Company> getByPage = companyRepository.findAll(new PageRequest(0, 2));
-//        for (int i = begin; i < size && ((i - begin) < pageSize); i++) {
-//            getByPage.add(companies.get(i));
-//        }
         return (List<Company>) getByPage;
     }
 
